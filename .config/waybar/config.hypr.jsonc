@@ -1,0 +1,21 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 25,
+  "spacing": 4,
+  "margin-top": 2,
+  "modules-left": ["hyprland/workspaces", "hyprland/scatchpad"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "custom/bluetooth-player",
+    "tray",
+    "pulseaudio",
+    "battery",
+    "hyprland/language",
+    "clock"
+  ],
+  "include": [
+    "~/.config/waybar/modules/system.json",
+    "~/.config/waybar/modules/bluetooth-player.json"
+  ]
+}

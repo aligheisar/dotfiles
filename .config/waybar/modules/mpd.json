@@ -1,0 +1,22 @@
+{
+  "mpd": {
+		"format": "{stateIcon} {randomIcon}{title} - {albumArtist}",
+    "format-stopped": "stopped",
+    "format-paused": "{stateIcon} {randomIcon}{title} - {albumArtist}",
+    "format-error": "",
+    "unknown-tag": "N/A",
+    "interval": 5,
+		"random-icons": {
+				"on": " "
+		},
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "max-length": 60,
+    "on-click": "mpc toggle",
+    "on-click-right": "mpc next",
+    "on-click-middle": "mpc prev"
+  }
+}
+

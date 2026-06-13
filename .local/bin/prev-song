@@ -1,0 +1,7 @@
+is_mpd=$(pgrep mpd)
+
+if [ $is_mpd ]; then
+	mpc prev
+else
+	playerctl previous
+fi

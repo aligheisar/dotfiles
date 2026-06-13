@@ -1,0 +1,54 @@
+use-part() {
+    if [ "$1" = "-u" ]; then
+        part_label="$2"
+        case "$part_label" in
+            windows-11)
+                udisksctl unmount -b /dev/nvme0n1p1
+                ;;
+            wd-1tb)
+                udisksctl unmount -b /dev/sdb1
+                ;;
+            toshiba-500gb)
+                udisksctl unmount -b /dev/sda1
+                ;;
+            *)
+                echo "Unknown partition label: $part_label"
+                ;;
+        esac
+    else
+        part_label="$1"
+        case "$part_label" in
+            windows-11)
+                udisksctl mount -b /dev/nvme0n1p1
+                ;;
+            wd-1tb)
+                udisksctl mount -b /dev/sdb1
+                ;;
+            toshiba-500gb)
+                udisksctl mount -b /dev/sda1
+                ;;
+            *)
+                echo "Unknown partition label: $part_label"
+                ;;
+        esac
+    fi
+}
+
+# completion for this function
+
+_use_part_completion() {
+  local -a parts
+  parts=(
+    'windows-11'
+    'wd-1tb'
+    'toshiba-500gb'
+  )
+
+  if [[ "${words[2]}" == "-u" ]]; then
+    _describe -t parts "Partitions" parts
+  else
+    _describe -t parts "Partitions" parts
+  fi
+}
+
+compdef _use_part_completion use-part

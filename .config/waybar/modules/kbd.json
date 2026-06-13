@@ -1,0 +1,6 @@
+{
+	"custom/kbd": {
+		"exec": "~/.config/waybar/scripts/kbd.sh",
+		"return-type": "text"
+	}
+}

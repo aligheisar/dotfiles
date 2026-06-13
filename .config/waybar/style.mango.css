@@ -1,0 +1,245 @@
+@define-color foreground #fff;
+
+* { font-family: Roboto Mono, Symbols Nerd Font, Vazirmatn, Arial, sans-serif;
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: @foreground;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#waybar.termite {
+  background-color: #3f3f3f;
+}
+
+window#waybar.chromium {
+  background-color: #000000;
+  border: none;
+}
+
+button {
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+}
+
+/* Tooltip */
+tooltip {
+  background: rgba(41, 31, 50, 0.9);
+  border: 1px solid #614975;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+tooltip label {
+  color: #f2e2ff;
+}
+
+#pulseaudio:hover {
+  background-color: #a37800;
+}
+
+#window {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#waybar.empty #window {
+  opacity: 0;
+}
+
+#workspaces button {
+  border-radius: 6px;
+  padding: 0 8px;
+  margin-right: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  color: @foreground;
+}
+
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#workspaces button.active {
+  background: linear-gradient(120deg, #614975, #392e43);
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#mode {
+  background-color: #874b2a;
+}
+
+#clock,
+#battery,
+#pulseaudio,
+#tray,
+#mode,
+#window,
+#idle_inhibitor,
+#scratchpad,
+#mpd,
+#language,
+#custom-bluetooth-player,
+#custom-keymode {
+  border-radius: 6px;
+  padding: 0 10px;
+  color: @foreground;
+}
+
+.modules-left {
+  margin-left: 4px;
+}
+
+.modules-right {
+  margin-right: 4px;
+}
+
+#clock {
+  background-color: #222222;
+}
+
+#battery {
+  background-color: @foreground;
+  color: #000000;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @foreground;
+  background-color: #26a65b;
+}
+
+#pulseaudio {
+  background-color: #f1c40f;
+  color: #000000;
+}
+
+#pulseaudio.muted {
+  background-color: #90b1b1;
+  color: #2a5c45;
+}
+
+#tray {
+  background-color: #292039;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+  background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+  background-color: #ecf0f1;
+  color: #2d3436;
+}
+
+#mpd {
+  background-color: #aabb99;
+  color: #152315;
+}
+
+#mpd.disconnected {
+  background-color: transparent;
+}
+
+#mpd.stopped {
+  background-color: #90b1b1;
+}
+
+#mpd.paused {
+  background-color: #51a37a;
+}
+
+#language {
+  background: #004033;
+  color: #efefef;
+  padding: 0 12px;
+}
+
+#scratchpad {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+  background-color: transparent;
+}
+
+#privacy {
+  padding: 0;
+}
+
+#privacy-item {
+  padding: 0 5px;
+  color: white;
+}
+
+#privacy-item.screenshare {
+  background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+  background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+  background-color: #0069d4;
+}
+
+/*  bluetooth-player  */
+
+#custom-bluetooth-player {
+  padding: 0 16px 0 8px;
+}
+
+#custom-bluetooth-player.idle {
+  color: #888888;
+  background: #2d2d2d;
+}
+
+/* Playing */
+#custom-bluetooth-player.playing {
+  color: #121212;
+  background: linear-gradient(170deg, #a08fb0, #574a64);
+}
+
+/* Paused */
+#custom-bluetooth-player.paused {
+  color: #d1d1d1;
+  background: #171717;
+  font-style: italic;
+}
+
+/* keymode */
+#custom-keymode {
+  background-color: #a08fb0;
+  color: #121212;
+}
+
+#custom-keymode.hidden {
+  opacity: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}

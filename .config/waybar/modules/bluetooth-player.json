@@ -1,0 +1,13 @@
+{
+  "custom/bluetooth-player": {
+    "format": "{icon} {text}",
+    "return-type": "json",
+    "max-length": 60,
+    "escape": true,
+    "interval": 2,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "exec": "$HOME/.config/waybar/scripts/bluetooth-player.sh"
+  }
+}

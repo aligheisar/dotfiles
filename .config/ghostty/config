@@ -1,0 +1,37 @@
+# fonts
+font-family = JetBrains Mono
+font-size = 10
+adjust-cell-height = 5
+
+# theme
+theme = Mellifluous
+
+# styles
+background-opacity = 0.98
+
+# features
+shell-integration-features = true
+
+# window
+window-padding-x = 6
+window-padding-y = 6
+
+# keybindings
+# for split view using vim commands
+keybind = ctrl+alt+j=new_split:down
+keybind = ctrl+alt+h=new_split:left
+keybind = ctrl+alt+k=new_split:up
+keybind = ctrl+alt+l=new_split:right
+
+# for focusing between splits
+keybind = ctrl+tab=goto_split:next
+
+# for resizing splits
+keybind = ctrl+shift+j=resize_split:down,10
+keybind = ctrl+shift+h=resize_split:left,10
+keybind = ctrl+shift+k=resize_split:up,10
+keybind = ctrl+shift+l=resize_split:right,10
+
+# for reseting split size
+keybind = ctrl+alt+0=equalize_splits
+

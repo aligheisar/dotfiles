@@ -1,0 +1,23 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 25,
+  "spacing": 4,
+  "margin-top": 2,
+  "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+  "modules-center": ["sway/window"],
+  "modules-right": [
+    "custom/bluetooth-player",
+    "mpd",
+    "tray",
+    "pulseaudio",
+    "battery",
+    "sway/language",
+    "clock"
+  ],
+  "include": [
+    "~/.config/waybar/modules/system.json",
+    "~/.config/waybar/modules/bluetooth-player.json",
+    "~/.config/waybar/modules/mpd.json"
+  ]
+}

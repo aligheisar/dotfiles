@@ -1,0 +1,154 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "languages": {
+    "TypeScript": {
+      "inlay_hints": {
+        "enabled": false,
+        "show_value_hints": false,
+        "show_parameter_hints": false,
+        "show_type_hints": false
+      }
+    }
+  },
+  "scrollbar": {
+    "show": "auto",
+  },
+  "which_key": {
+    "enabled": false,
+  },
+  "ui_font_family": ".ZedSans",
+  "auto_update": false,
+  "use_system_prompts": false,
+  "use_system_path_prompts": false,
+  "ssh_connections": [
+    {
+      "host": "personal",
+      "args": [],
+      "projects": [],
+    },
+  ],
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "disable_ai": true,
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "never",
+    "toggle_relative_line_numbers": false,
+    "highlight_on_yank_duration": 40,
+  },
+  "buffer_line_height": {
+    "custom": 2.6,
+  },
+  "project_panel": {
+    "dock": "left",
+    "auto_fold_dirs": false,
+    "indent_size": 25,
+    "hide_root": true,
+  },
+  "tabs": {
+    "show_close_button": "hidden",
+  },
+  "sticky_scroll": {
+    "enabled": false,
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "icon_theme": "Material Icon Theme",
+  "ui_font_size": 16.0,
+  "theme": {
+    "mode": "dark",
+    "light": "macOS Classic Light",
+    "dark": "VSCode Dark Modern",
+  },
+  "current_line_highlight": "gutter",
+  "cursor_blink": true,
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_fallbacks": [
+    "Vazirmatn",
+    "Font Awesome 7 Brands",
+    ".SystemUIFont",
+    ".ZedMono",
+  ],
+  "buffer_font_size": 14.0,
+  "tab_size": 2,
+  "show_whitespaces": "boundary",
+  "show_completions_on_input": true,
+  "linked_edits": true,
+  "gutter": {
+    "breakpoints": false,
+    "folds": false,
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false,
+  },
+  "toolbar": {
+    "code_actions": false,
+    "agent_review": false,
+    "selections_menu": false,
+    "breadcrumbs": false,
+    "quick_actions": false,
+  },
+  "ensure_final_newline_on_save": true,
+  "format_on_save": "on",
+  "formatter": [
+    "language_server",
+    {
+      "code_action": "source.fixAll.biome"
+    }
+  ],
+  "go_to_definition_fallback": "none",
+  "image_viewer": {
+    "unit": "decimal"
+  },
+  "inlay_hints": {
+    "enabled": false,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "show_type_hints": true,
+    "show_value_hints": false,
+    "toggle_on_modifiers_press": {
+      "alt": true,
+    },
+  },
+  "snippet_sort_order": "top",
+  "jsx_tag_auto_close": {
+    "enabled": true,
+  },
+  "middle_click_paste": false,
+  "relative_line_numbers": "enabled",
+  "use_smartcase_search": true,
+  "terminal": {
+    "line_height": {
+      "custom": 2,
+    },
+  },
+  "title_bar": {
+    "show_sign_in": false,
+  },
+  "when_closing_with_no_tabs": "close_window",
+}

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Get the current mute state
+mute_state=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+
+# If muted, unmute
+if [ "$mute_state" = "yes" ]; then
+    pactl set-sink-mute @DEFAULT_SINK@ 0
+fi
+
+if [ "$1" = "extreme" ]; then
+	modify_amount=10
+elif [ "$1" = "precise" ]; then
+	modify_amount=1
+else 
+	modify_amount=5
+fi
+
+# Reduce volume
+pactl set-sink-volume @DEFAULT_SINK@ -$modify_amount%
+

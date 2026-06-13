@@ -1,0 +1,7 @@
+is_mpd=$(pgrep mpd)
+
+if [ $is_mpd ]; then
+	mpc toggle
+else
+	playerctl play-pause
+fi

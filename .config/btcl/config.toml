@@ -1,0 +1,2 @@
+[luncher]
+command = ['fuzzel', '-d', '--index']

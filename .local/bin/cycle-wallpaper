@@ -1,0 +1,23 @@
+#!/bin/bash
+
+wallpaper_dir="$HOME/Pictures/wallpapers"
+
+# Load wallpapers into array
+mapfile -t wallpapers < <(find "$wallpaper_dir" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | sort)
+
+# Get current wallpaper from swaybg
+current_wall=$(ps -C swaybg -o args= | sed -n 's/.*-i \([^ ]*\).*/\1/p')
+
+# Find current index (0-based)
+index=$(printf "%s\n" "${wallpapers[@]}" | grep -n -x "$current_wall" | cut -d: -f1)
+index=$((index - 1))
+
+# Compute next index (wrap around)
+next_index=$(( (index + 1) % ${#wallpapers[@]} ))
+next_wall="${wallpapers[$next_index]}"
+
+# Kill all running swaybg processes
+pkill -9 swaybg
+
+# Start new swaybg
+swaybg -i "$next_wall" -m fill &

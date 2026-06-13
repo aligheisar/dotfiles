@@ -1,0 +1,6 @@
+{
+  "dwl/window": {
+    "format": "{title}",
+		"max-length": 50
+  }
+}

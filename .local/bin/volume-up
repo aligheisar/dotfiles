@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Get the current mute state
+mute_state=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+
+# If muted, just unmute and exit
+if [ "$mute_state" = "yes" ]; then
+    pactl set-sink-mute @DEFAULT_SINK@ 0
+    exit 0
+fi
+
+# If not muted, get current volume
+current_volume=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -1 | tr -d '%')
+
+# Define maximum volume and increment
+max_volume=100
+increment=5
+extreme_increment=10
+precise_increment=1
+
+# Calculate new volume
+if [ "$1" = "extreme" ]; then
+    new_volume=$((current_volume + extreme_increment))
+elif [ "$1" = "precise" ]; then
+    new_volume=$((current_volume + precise_increment))
+else
+    new_volume=$((current_volume + increment))
+fi
+
+# Cap at max_volume
+if [ "$new_volume" -le "$max_volume" ]; then
+    pactl set-sink-volume @DEFAULT_SINK@ ${new_volume}%
+else
+    pactl set-sink-volume @DEFAULT_SINK@ ${max_volume}%
+fi
+

@@ -1,0 +1,55 @@
+{
+  "tray": {
+    "spacing": 10
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}% | {format_source}",
+    "format-bluetooth": "{volume}% {icon} | {format_source}",
+    "format-bluetooth-muted": " {icon} | {format_source}",
+    "format-muted": " | {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "sway/workspaces": {
+	"name": "workspaces",  
+	"format": "{name}"
+  },
+  "sway/window": {
+    "format": "{title}",
+    "max-length": 30,
+    "separate-outputs": true,
+    "all-outputs": true,
+    "return-type": "json",
+    "rewrite": {
+      "rewrite": {
+        "": "{\"text\":\"—\",\"class\":\"empty\"}",
+        "*": "{\"text\":\"{title}\",\"class\":\"active\"}"
+      }
+    }
+  }
+}

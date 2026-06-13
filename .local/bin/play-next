@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+files="$(mpc listall)"
+selected_index="$(mpc listall -f '%artist% - %title% - %album%' | fuzzel -w 90 --index -d -p 'Choose to Add: ')" || exit 0
+selected_file="$(echo "$files" | sed -n "$((selected_index+1))p")"
+
+song="$(mpc search -f '%artist% - %title%' filename "$selected_file")"
+mpc insert "$selected_file" >/dev/null
+notify-send "$song" "Added to the Queue."

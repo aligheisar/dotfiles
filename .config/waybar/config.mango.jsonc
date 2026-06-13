@@ -1,0 +1,27 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 25,
+  "spacing": 5,
+  "margin-top": 5,
+  "modules-left": ["ext/workspaces", "custom/keymode"],
+  "modules-center": ["dwl/window"],
+  "modules-right": [
+    "custom/bluetooth-player",
+    "mpd",
+    "tray",
+    "pulseaudio",
+    "battery",
+    "custom/kbd",
+    "clock"
+  ],
+  "include": [
+    "~/.config/waybar/modules/ext-workspaces.json",
+    "~/.config/waybar/modules/keymode.json",
+    "~/.config/waybar/modules/kbd.json",
+    "~/.config/waybar/modules/dwl-window.json",
+    "~/.config/waybar/modules/system.json",
+    "~/.config/waybar/modules/bluetooth-player.json",
+    "~/.config/waybar/modules/mpd.json"
+  ]
+}

@@ -1,0 +1,5 @@
+[[end]]
+type: "script",
+name: "mango-workspaces",
+cmd: "~/.config/ironbar/scripts/mango-workspaces.sh HDMI-A-1",
+mode: "watch"

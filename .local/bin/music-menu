@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+option="$(echo -e 'Select Song\nSelect Artist' | fuzzel -l 2 -d --index -p 'Choose an option: ')" || exit 0
+
+case "$option" in
+	"0") ./play-next.sh ;;
+	"1") ./select-play-next.sh ;;
+esac

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+artist="$(mpc list artist | sed '1{/^$/d;}' | fuzzel -d -p 'Choose artist: ')" || exit 0
+artist_files="$(mpc search artist "$artist")"
+artist_songs="$(mpc search -f '%title% - %album%' artist "$artist")"
+
+selected_index="$(echo "$artist_songs" | fuzzel -d --index -p 'Select Song: ')" || exit 0
+selected_file="$(echo "$artist_files" | sed -n "$((selected_index+1))p")"
+
+song="$(mpc search -f '%artist% - %title%' filename "$selected_file")"
+mpc insert "$selected_file" >/dev/null
+notify-send "$song" "Added to the Queue."

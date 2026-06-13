@@ -1,0 +1,6 @@
+{
+	"custom/keymode": {
+		"exec": "~/.config/waybar/scripts/keymode.sh",
+		"return-type": "json"
+	}
+}

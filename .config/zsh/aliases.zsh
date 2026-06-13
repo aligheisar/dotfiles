@@ -1,0 +1,10 @@
+alias ls='eza'
+alias l='eza -lah'
+alias la='eza -lAh'
+alias ll='eza -lh'
+alias lsa='eza -lah'
+alias md='mkdir -p'
+alias rd=rmdir
+alias v=vim
+alias vi=vim
+alias cat=bat

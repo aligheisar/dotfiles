@@ -1,0 +1,72 @@
+position = "top"
+height = 22
+
+[[start]]
+type = "custom"
+name = "mango-workspaces"
+
+[[start.bar]]
+type = "script"
+cmd = "~/.config/ironbar/scripts/mango-workspaces.sh"
+mode = "watch"
+
+[[center]]
+type = "focused"
+icon_size = 11
+
+[[end]]
+type = "battery"
+show_if = "ls /sys/class/power_supply/ | grep --quiet '^BAT'"
+
+[[end]]
+type = "tray"
+
+[[end]]
+type = "keyboard"
+show_scroll = true
+
+[end.icons.layout_map]
+"English (US)" = "en"
+Persian = "ir"
+
+[[start]]
+type = "music"
+player_type = "mpd"
+format = "{title} - {artist}"
+music_dir = "/home/ali/Music"
+truncate = "end"
+
+[[end]]
+type = "network_manager"
+icon_size = 24
+types_blacklist = ["loopback", "bridge"]
+
+[[end]]
+type = "volume"
+format = "{icon} {percentage}%"
+sink_slider_orientation = "vertical"
+max_volume = 100
+truncate_popup = "end"
+
+[end.truncate]
+mode = "end"
+max_length = 25
+
+[end.icons]
+volume = "󰕾"
+muted = "󰝟"
+
+[end.profiles.medium]
+when = 66.66
+
+[end.profiles.medium.icons]
+volume = "󰖀"
+
+[end.profiles.low]
+when = 33.33
+
+[end.profiles.low.icons]
+volume = "󰕿"
+
+[[end]]
+type = "clock"
