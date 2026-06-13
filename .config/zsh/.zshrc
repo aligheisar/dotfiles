@@ -1,6 +1,11 @@
 unsetopt beep
 bindkey -e
 
+# history
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+export HISTSIZE=2000
+export SAVEHIST=2000
+
 # antidote
 antidote_path='/usr/share/zsh-antidote'
 source "$antidote_path/antidote.zsh"

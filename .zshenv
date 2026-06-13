@@ -13,10 +13,6 @@ export PAGER="less"
 
 # zsh
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export ZCOMPDUMP="$XDG_CACHE_HOME/zsh/.zcompdump"
-export HISTFILE="$XDG_STATE_HOME/zsh/history"
-export HISTSIZE=2000
-export SAVEHIST=2000
 
 # less history
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
