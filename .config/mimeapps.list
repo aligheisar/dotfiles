@@ -17,6 +17,13 @@ image/jpeg=swayimg.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
 x-scheme-handler/polypane=Polypane.desktop
 x-scheme-handler/postman=Postman.desktop
+inode/directory=nemo.desktop
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+video/webm=mpv.desktop
+video/x-msvideo=mpv.desktop
+video/mpeg=mpv.desktop
+video/quicktime=mpv.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen.desktop;
