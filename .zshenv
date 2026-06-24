@@ -4,6 +4,16 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# Fontconfig
+export FONTCONFIG_PATH=/etc/fonts
+
+# Gpu
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+
+# Qt wayland
+export QT_QPA_PLATFORM="wayland;xcb"
+
 # Editors
 export EDITOR="vim"
 export VISUAL="vim"
