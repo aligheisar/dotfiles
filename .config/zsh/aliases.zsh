@@ -4,6 +4,7 @@ alias la='eza -lAh'
 alias ll='eza -lh'
 alias lsa='eza -lah'
 alias md='mkdir -p'
+alias eww='~/.local/share/eww/target/release/eww'
 alias rd=rmdir
 alias v=vim
 alias vi=vim
