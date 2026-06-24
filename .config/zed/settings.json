@@ -1,27 +1,86 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "use_system_prompts": false,
+  "indent_guides": {
+    "coloring": "fixed",
+    "active_line_width": 2
+  },
+  "inline_code_actions": false,
+  "scroll_beyond_last_line": "one_page",
+  "diff_view_style": "unified",
+  "code_lens": "off",
+  "completion_menu_item_kind": "symbol",
+  "completions": {
+    
+  },
+  "document_symbols": "on",
+  "semantic_tokens": "combined",
+  "close_on_file_delete": true,
+  "file_finder": {
+    "file_icons": true
+  },
+  "zoomed_padding": true,
+  "active_pane_modifiers": {
+    "border_size": 0.0
+  },
+  "window_decorations": "client",
+  "use_system_window_tabs": false,
+  "focus_follows_mouse": {
+    "enabled": false
+  },
+  "preview_tabs": {
+    "enabled": true
+  },
+  "debugger": {
+    "button": false
+  },
+  "search": {
+    "center_on_match": false,
+    "button": true
+  },
+  "status_bar": {
+    "show_active_file": false,
+    "line_endings_button": false,
+    "cursor_position_button": true,
+    "active_language_button": true
+  },
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": true
+    },
+    "show_stage_restore_buttons": false
+  },
+  "proxy": "",
   "outline_panel": {
+    "auto_fold_dirs": true,
     "dock": "left"
   },
   "collaboration_panel": {
+    "button": false,
     "dock": "left"
   },
   "agent": {
+    "button": false,
     "dock": "right",
     "favorite_models": [],
     "model_parameters": []
   },
   "git_panel": {
+    "show_count_badge": true,
+    "file_icons": true,
+    "tree_view": true,
+    "sort_by_path": false,
+    "fallback_branch_name": "main",
+    "status_style": "label_color",
     "dock": "left"
   },
   "languages": {
+    "TSX": {
+      "colorize_brackets": true,
+      "inlay_hints": {
+        "show_background": false,
+        "enabled": false
+      }
+    },
     "TypeScript": {
       "inlay_hints": {
         "enabled": false,
@@ -33,65 +92,101 @@
   },
   "scrollbar": {
     "show": "auto",
+    "diagnostics": "all"
+  },
+  "diagnostics": {
+    "button": true,
+    "inline": {
+      "min_column": 0,
+      "padding": 1,
+      "enabled": true
+    }
   },
   "which_key": {
-    "enabled": false,
+    "enabled": false
   },
-  "ui_font_family": ".ZedSans",
+  "ui_font_family": ".SystemUIFont",
   "auto_update": false,
-  "use_system_prompts": false,
   "use_system_path_prompts": false,
   "ssh_connections": [
     {
       "host": "personal",
       "args": [],
-      "projects": [],
-    },
+      "projects": []
+    }
   ],
   "telemetry": {
     "diagnostics": false,
-    "metrics": false,
+    "metrics": false
   },
   "disable_ai": true,
   "vim_mode": true,
   "vim": {
+    "show_edit_predictions_in_normal_mode": false,
     "use_system_clipboard": "never",
     "toggle_relative_line_numbers": false,
     "highlight_on_yank_duration": 40,
+    "use_smartcase_find": true
   },
   "buffer_line_height": {
-    "custom": 2.6,
+    "custom": 2.6
   },
   "project_panel": {
+    "button": true,
+    "indent_guides": {
+      "show": "always"
+    },
+    "git_status_indicator": true,
+    "scrollbar": {
+      "show": "auto"
+    },
+    "bold_folder_labels": false,
+    "git_status": true,
+    "folder_icons": true,
+    "file_icons": true,
+    "entry_spacing": "comfortable",
+    "hide_gitignore": false,
+    "default_width": 250.0,
     "dock": "left",
     "auto_fold_dirs": false,
     "indent_size": 25,
     "hide_root": true,
+    "auto_reveal_entries": false,
+    "diagnostic_badges": true,
+    "show_diagnostics": "all"
   },
   "tabs": {
-    "show_close_button": "hidden",
+    "show_diagnostics": "off",
+    "close_position": "left",
+    "file_icons": true,
+    "git_status": true,
+    "show_close_button": "hidden"
   },
   "sticky_scroll": {
-    "enabled": false,
+    "enabled": false
   },
   "minimap": {
-    "show": "never",
+    "show": "never"
   },
-  "icon_theme": "Material Icon Theme",
-  "ui_font_size": 16.0,
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme"
+  },
+  "ui_font_size": 15.0,
   "theme": {
     "mode": "dark",
     "light": "macOS Classic Light",
-    "dark": "VSCode Dark Modern",
+    "dark": "Cisco Dark"
   },
   "current_line_highlight": "gutter",
   "cursor_blink": true,
-  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_family": "Roboto Mono",
   "buffer_font_fallbacks": [
+    "JetBrains Mono",
     "Vazirmatn",
     "Font Awesome 7 Brands",
-    ".SystemUIFont",
-    ".ZedMono",
+    ".SystemUIFont"
   ],
   "buffer_font_size": 14.0,
   "tab_size": 2,
@@ -100,18 +195,20 @@
   "linked_edits": true,
   "gutter": {
     "breakpoints": false,
-    "folds": false,
+    "folds": true
   },
   "tab_bar": {
+    "show_pinned_tabs_in_separate_row": false,
+    "show": true,
     "show_nav_history_buttons": false,
-    "show_tab_bar_buttons": false,
+    "show_tab_bar_buttons": false
   },
   "toolbar": {
     "code_actions": false,
     "agent_review": false,
     "selections_menu": false,
     "breadcrumbs": false,
-    "quick_actions": false,
+    "quick_actions": false
   },
   "ensure_final_newline_on_save": true,
   "format_on_save": "on",
@@ -132,23 +229,30 @@
     "show_type_hints": true,
     "show_value_hints": false,
     "toggle_on_modifiers_press": {
-      "alt": true,
-    },
+      "alt": true
+    }
   },
   "snippet_sort_order": "top",
   "jsx_tag_auto_close": {
-    "enabled": true,
+    "enabled": true
   },
   "middle_click_paste": false,
   "relative_line_numbers": "enabled",
   "use_smartcase_search": true,
   "terminal": {
-    "line_height": {
-      "custom": 2,
-    },
+    "button": true,
+    "show_count_badge": true,
+    "dock": "bottom",
+    "line_height": "comfortable"
   },
   "title_bar": {
-    "show_sign_in": false,
+    "button_layout": "platform_default",
+    "show_user_menu": true,
+    "show_onboarding_banner": true,
+    "show_project_items": false,
+    "show_branch_name": true,
+    "show_branch_status_icon": true,
+    "show_sign_in": false
   },
-  "when_closing_with_no_tabs": "close_window",
+  "when_closing_with_no_tabs": "close_window"
 }

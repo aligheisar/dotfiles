@@ -6,16 +6,47 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
+  // file actions
   {
-    "context": "Workspace",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
+      "space q": "pane::CloseActiveItem",
+      "space space q": "pane::CloseAllItems",
+      "space w": "workspace::Save",
+      "space f": "editor::Format"
+    }
+  },
+  // git-like navigation
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "] c": "editor::GoToNextChange",
+      "[ c": "editor::GoToPreviousChange"
+    }
+  },
+  // definition navigation
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // "g s": "editor::GoToDefinitionSplit"
     }
   },
   {
-    "context": "Editor && vim_mode == insert",
     "bindings": {
-      "j j": "vim::NormalBefore"
+      "ctrl-\\": "workspace::ToggleLeftDock",
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "r": "project_panel::Rename",
+      "y y": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "d": "project_panel::Cut",
+      "shift-d": "project_panel::Delete",
+      "l": "project_panel::OpenPermanent",
+      "u": "project_panel::Undo",
+      "ctrl-r": "project_panel::Redo"
     }
   }
 ]

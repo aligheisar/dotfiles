@@ -8,10 +8,9 @@
       "\t);",
       "};",
       "",
-      "export { ${1} };"
+      "export { $1 };"
     ]
   },
-
   "Next.js Page": {
     "prefix": "anp",
     "body": [
@@ -21,76 +20,89 @@
       "\t);",
       "};",
       "",
-      "export default ${1}Page;"
+      "export default $1Page;"
     ]
   },
-
   "Next.js Layout": {
     "prefix": "anl",
     "body": [
-      "const ${1:LayoutName}Layout = ({ children }: { children: React.ReactNode }) => {",
-      "\treturn <${2:main}>{children}</${2}>;",
+      "const ${1:LayoutName}Layout = ({ children }: LayoutProps<\"$2\">) => {",
+      "\treturn <$3>{children}</$3>;",
       "};",
       "",
-      "export default ${1}Layout;"
+      "export default $1Layout;"
     ]
   },
-
   "Next.js Context": {
     "prefix": "anc",
     "body": [
       "import { createContext } from \"react\";",
+      "import type { ContextValues } from \"@/types/${1:context}\";",
       "",
-      "const ${1:MyContext} = createContext(null);",
+      "const ${2:Context} = createContext<ContextValues | null>(null);",
       "",
-      "export { ${1} };"
+      "export { $2 };"
     ]
   },
-
   "Next.js Context Provider": {
     "prefix": "ancp",
     "body": [
       "\"use client\";",
       "",
       "import { ReactNode } from \"react\";",
-      "import { ${1:MyContext} } from \"@/context/${2:context-name}\";",
+      "import { ${1:Context} } from \"@/context/${2:context}-context\";",
+      "import type { ContextValues } from \"@/types/${2:context}-context\";",
       "",
-      "const ${3:MyProvider} = ({ children }: { children: ReactNode }) => {",
-      "\t${4:// state and logic here}",
+      "const ${3:Provider}Provider = ({ children }: { children: ReactNode }) => {",
+      "\t$4",
       "",
-      "\tconst contextValues = { $5 };",
-      "\treturn <${1}.Provider value={contextValues}>{children}</${1}.Provider>;",
+      "\tconst contextValues: ContextValues = {",
+      "\t\t$5",
+      "\t};",
+      "",
+      "\treturn (",
+      "\t\t<$1.Provider value={contextValues}>",
+      "\t\t\t{children}",
+      "\t\t</$1.Provider>",
+      "\t);",
       "};",
       "",
-      "export { ${3} };"
+      "export { $3Provider };"
     ]
   },
-
   "Next.js Context Hook": {
     "prefix": "anch",
     "body": [
       "\"use client\";",
       "",
       "import { use } from \"react\";",
-      "import { ${1:MyContext} } from \"@/context/${2:context-name}\";",
+      "import { ${1:Context} } from \"@/context/${2:context}-context\";",
       "",
-      "const use${3:MyHook} = () => {",
-      "\tconst context = use(${1});",
-      "\tif (!context) throw Error(\"Context must be used inside its provider\");",
+      "const use${3:Context} = () => {",
+      "\tconst context = use($1);",
+      "",
+      "\tif (!context) {",
+      "\t\tthrow new Error(\"Context should be used inside its provider\");",
+      "\t}",
+      "",
       "\treturn context;",
       "};",
       "",
-      "export { use${3} };"
+      "export { use$3 };"
     ]
   },
-
   "useState": {
     "prefix": "aus",
-    "body": ["const [$1, set${1/(.*)/${1:/capitalize}/}] = useState($2);"]
+    "body": [
+      "const [${1:value}, set${2:Value}] = useState($3);"
+    ]
   },
-
   "useEffect": {
     "prefix": "aue",
-    "body": ["useEffect(() => {", "\t$1", "}, [$2]);"]
+    "body": [
+      "useEffect(() => {",
+      "\t$1",
+      "}, [$2]);"
+    ]
   }
 }
