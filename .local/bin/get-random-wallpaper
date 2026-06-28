@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Directory containing your background images
-wallpaper_dir="$HOME/Pictures/wallpapers"
-
-# Pick a random image from the directory
-random_wallpaper=$(find "$wallpaper_dir" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1)
-
-echo "$random_wallpaper"
