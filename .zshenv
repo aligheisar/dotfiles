@@ -40,3 +40,7 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
 export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
 export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel 
 . "/home/ali/.local/share/cargo/env"
+
+# Ollama
+export OLLAMA_FLASH_ATTENTION=1
+export OLLAMA_KV_CACHE_TYPE=q8_0
