@@ -1,4 +1,4 @@
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function()
   hl.exec_cmd("nm-applet & blueman-applet & awww-daemon & mpd")
   hl.exec_cmd("start-waybar -c ~/.config/waybar/config.hypr.jsonc -s ~/.config/waybar/style.hypr.css")
   hl.exec_cmd("wl-clip-persist --clipboard regular --reconnect-tries 0")
