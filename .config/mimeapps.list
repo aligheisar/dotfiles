@@ -35,6 +35,7 @@ video/webm=mpv.desktop
 video/x-msvideo=mpv.desktop
 video/mpeg=mpv.desktop
 video/quicktime=mpv.desktop
+x-scheme-handler/zcode=zcode.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen.desktop;
