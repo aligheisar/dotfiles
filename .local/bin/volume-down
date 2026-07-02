@@ -1,21 +1,23 @@
 #!/bin/bash
 
 # Get the current mute state
-mute_state=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+mute_state=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q '\[MUTED\]' && echo "yes" || echo "no")
 
-# If muted, unmute
+# If muted, unmute it
 if [ "$mute_state" = "yes" ]; then
-    pactl set-sink-mute @DEFAULT_SINK@ 0
+		wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
 fi
 
-if [ "$1" = "extreme" ]; then
-	modify_amount=10
-elif [ "$1" = "precise" ]; then
-	modify_amount=1
-else 
-	modify_amount=5
-fi
+case "$1" in
+    extreme)
+        modify_amount="10%"
+        ;;
+    precise)
+        modify_amount="1%"
+        ;;
+    *)
+        modify_amount="5%"
+        ;;
+esac
 
-# Reduce volume
-pactl set-sink-volume @DEFAULT_SINK@ -$modify_amount%
-
+wpctl set-volume @DEFAULT_AUDIO_SINK@ "${modify_amount}-"

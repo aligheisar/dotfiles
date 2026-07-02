@@ -1,36 +1,25 @@
 #!/bin/bash
 
 # Get the current mute state
-mute_state=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+mute_state=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q '\[MUTED\]' && echo "yes" || echo "no")
 
 # If muted, just unmute and exit
 if [ "$mute_state" = "yes" ]; then
-    pactl set-sink-mute @DEFAULT_SINK@ 0
+		wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
     exit 0
 fi
 
-# If not muted, get current volume
-current_volume=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -1 | tr -d '%')
+# Determine increment
+case "$1" in
+    extreme)
+        increment="10%"
+        ;;
+    precise)
+        increment="1%"
+        ;;
+    *)
+        increment="5%"
+        ;;
+esac
 
-# Define maximum volume and increment
-max_volume=100
-increment=5
-extreme_increment=10
-precise_increment=1
-
-# Calculate new volume
-if [ "$1" = "extreme" ]; then
-    new_volume=$((current_volume + extreme_increment))
-elif [ "$1" = "precise" ]; then
-    new_volume=$((current_volume + precise_increment))
-else
-    new_volume=$((current_volume + increment))
-fi
-
-# Cap at max_volume
-if [ "$new_volume" -le "$max_volume" ]; then
-    pactl set-sink-volume @DEFAULT_SINK@ ${new_volume}%
-else
-    pactl set-sink-volume @DEFAULT_SINK@ ${max_volume}%
-fi
-
+wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ "${increment}+"
