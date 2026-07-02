@@ -1,0 +1,22 @@
+{
+  "hyprland/workspaces": {
+    "active-only": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": " ",
+      "3": "󰖟",
+      "4": "󰎇"
+    },
+    "persistent-workspaces": {
+      "*": 4
+    }
+  },
+  "hyprland/window": {
+    "max-length": 50
+  },
+  "hyprland/language": {
+    "format-en": "EN",
+    "format-fa": "FA"
+  }
+}

@@ -3,11 +3,18 @@
   "position": "top",
   "height": 25,
   "spacing": 4,
-  "margin-top": 2,
-  "modules-left": ["hyprland/workspaces", "hyprland/scatchpad"],
-  "modules-center": ["hyprland/window"],
+  "margin-top": 5,
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "hyprland/scatchpad"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
   "modules-right": [
-    "custom/bluetooth-player",
+    "privacy",
+    "mpd",
     "tray",
     "pulseaudio",
     "battery",
@@ -16,6 +23,7 @@
   ],
   "include": [
     "~/.config/waybar/modules/system.json",
-    "~/.config/waybar/modules/bluetooth-player.json"
+    "~/.config/waybar/modules/hyprland.json",
+    "~/.config/waybar/modules/mpd.json"
   ]
 }

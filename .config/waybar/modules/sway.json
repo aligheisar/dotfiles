@@ -1,0 +1,19 @@
+{
+  "sway/workspaces": {
+	"name": "workspaces",  
+	"format": "{name}"
+  },
+  "sway/window": {
+    "format": "{title}",
+    "max-length": 30,
+    "separate-outputs": true,
+    "all-outputs": true,
+    "return-type": "json",
+    "rewrite": {
+      "rewrite": {
+        "": "{\"text\":\"—\",\"class\":\"empty\"}",
+        "*": "{\"text\":\"{title}\",\"class\":\"active\"}"
+      }
+    }
+  }
+}
