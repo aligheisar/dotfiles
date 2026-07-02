@@ -9,9 +9,6 @@
   "diff_view_style": "unified",
   "code_lens": "off",
   "completion_menu_item_kind": "symbol",
-  "completions": {
-    
-  },
   "document_symbols": "on",
   "semantic_tokens": "combined",
   "close_on_file_delete": true,
@@ -74,14 +71,43 @@
     "dock": "left"
   },
   "languages": {
+    "JavaScript": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    },
     "TSX": {
       "colorize_brackets": true,
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      },
       "inlay_hints": {
         "show_background": false,
         "enabled": false
       }
     },
     "TypeScript": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      },
       "inlay_hints": {
         "enabled": false,
         "show_value_hints": false,
@@ -254,5 +280,12 @@
     "show_branch_status_icon": true,
     "show_sign_in": false
   },
-  "when_closing_with_no_tabs": "close_window"
+  "when_closing_with_no_tabs": "close_window",
+  "lsp": {
+    "biome": {
+      "settings": {
+        "require_config_file": true
+      }
+    }
+  }
 }
