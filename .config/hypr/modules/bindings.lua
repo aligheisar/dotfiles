@@ -2,7 +2,9 @@ local terminal    = "foot"
 local fileManager = "nemo"
 local menu        = "fuzzel"
 
-local mainMod     = "SUPER" -- Sets "Windows" key as main modifier
+local mainMod     = "SUPER"
+local secondMod   = "SUPER + SHIFT"
+local thirdMod    = "SUPER + SHIFT + CTRL"
 local left        = "H"
 local right       = "L"
 local up          = "K"
@@ -10,12 +12,12 @@ local down        = "J"
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + CTRL + E",
+hl.bind(thirdMod .. " + E",
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist-fuzzel-img"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("cycle-wallpaper"))
+hl.bind(secondMod .. " + W", hl.dsp.exec_cmd("cycle-wallpaper"))
 -- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 -- Move focus
@@ -24,46 +26,24 @@ hl.bind(mainMod .. " + " .. right, hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + " .. up, hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + " .. down, hl.dsp.focus({ direction = "down" }))
 -- Move window
-hl.bind(mainMod .. " + SHIFT + " .. left, hl.dsp.window.swap({ direction = "left" }))
-hl.bind(mainMod .. " + SHIFT + " .. right, hl.dsp.window.swap({ direction = "right" }))
-hl.bind(mainMod .. " + SHIFT + " .. up, hl.dsp.window.swap({ direction = "up" }))
-hl.bind(mainMod .. " + SHIFT + " .. down, hl.dsp.window.swap({ direction = "down" }))
+hl.bind(secondMod .. " + " .. left, hl.dsp.window.swap({ direction = "left" }))
+hl.bind(secondMod .. " + " .. right, hl.dsp.window.swap({ direction = "right" }))
+hl.bind(secondMod .. " + " .. up, hl.dsp.window.swap({ direction = "up" }))
+hl.bind(secondMod .. " + " .. down, hl.dsp.window.swap({ direction = "down" }))
 
 hl.bind(mainMod .. " + backslash", hl.dsp.window.float())
 hl.bind(mainMod .. " + A", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 
-local layouts = {
-  "dwindle",
-  "master",
-  "scrolling",
-  "monocle",
-}
-
--- hl.bind(mainMod .. " + N", function()
---     local current = hl
-
---     local next = layouts[1]
-
---     for i, layout in ipairs(layouts) do
---         if layout == current then
---             next = layouts[(i % #layouts) + 1]
---             break
---         end
---     end
--- end)
-
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
   local key = i % 10 -- 10 maps to key 0
   hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+  hl.bind(secondMod .. " + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(secondMod .. " + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -94,6 +74,7 @@ hl.bind(mainMod .. "+ P", hl.dsp.exec_cmd("toggle-play"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("prev-song"), { locked = true })
 hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd("prev-song"), { locked = true })
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("play-next"), { locked = true })
-hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("select-play-next"), { locked = true })
+hl.bind(secondMod .. " + M", hl.dsp.exec_cmd("select-play-next"), { locked = true })
+hl.bind(secondMod .. " + N", hl.dsp.exec_cmd("networkmanager_dmenu"), { locked = true })
 hl.bind("Print", hl.dsp.exec_cmd("grim"), { locked = true })
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd('grim -g "$(slurp)"'), { locked = true })
