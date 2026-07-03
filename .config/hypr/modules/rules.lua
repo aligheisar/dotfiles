@@ -30,6 +30,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  name = "zen",
+  match = {
+    class = "zen"
+  },
+  workspace = 1
+})
+
+hl.window_rule({
   name = "code",
   match = {
     class = "code"
@@ -43,6 +51,14 @@ hl.window_rule({
     class = "dev.zed.Zed"
   },
   workspace = 2
+})
+
+hl.window_rule({
+  name = "helium",
+  match = {
+    class = "helium"
+  },
+  workspace = 3
 })
 
 hl.window_rule({
