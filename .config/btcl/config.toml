@@ -1,2 +1,2 @@
 [luncher]
-command = ['fuzzel', '-d', '--index']
+command = ['rofi', '-dmenu', '-format i']

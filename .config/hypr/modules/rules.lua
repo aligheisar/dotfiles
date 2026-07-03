@@ -71,7 +71,11 @@ hl.window_rule({
 })
 
 hl.layer_rule({
-  match = { namespace = "launcher" },
+  match = { namespace = "rofi" },
   blur = true,
   ignore_alpha = 0,
 })
+
+hl.workspace_rule({ workspace = "name:dwindle", layout = "dwindle" })
+hl.workspace_rule({ workspace = "name:scrolling", layout = "scrolling" })
+hl.workspace_rule({ workspace = "name:master", layout = "master" })

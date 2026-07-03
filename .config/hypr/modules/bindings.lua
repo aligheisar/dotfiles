@@ -1,35 +1,62 @@
-local terminal    = "foot"
-local fileManager = "nemo"
-local menu        = "fuzzel"
+local terminal  = "foot"
+local menu      = "rofi -show drun"
 
-local mainMod     = "SUPER"
-local secondMod   = "SUPER + SHIFT"
-local thirdMod    = "SUPER + SHIFT + CTRL"
-local left        = "H"
-local right       = "L"
-local up          = "K"
-local down        = "J"
+local mainMod   = "SUPER"
+local secondMod = "SUPER + SHIFT"
+local thirdMod  = "SUPER + SHIFT + CTRL"
+local left      = "H"
+local right     = "L"
+local up        = "K"
+local down      = "J"
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(thirdMod .. " + E",
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist-fuzzel-img"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist-rofi-img"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(secondMod .. " + W", hl.dsp.exec_cmd("cycle-wallpaper"))
 -- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 -- Move focus
+hl.bind(secondMod .. " + backslash", hl.dsp.exec_cmd("hyprctl dispatch focuswindow floating/tiled"))
+
 hl.bind(mainMod .. " + " .. left, hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + " .. right, hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + " .. up, hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + " .. down, hl.dsp.focus({ direction = "down" }))
--- Move window
+-- Swap windows
 hl.bind(secondMod .. " + " .. left, hl.dsp.window.swap({ direction = "left" }))
 hl.bind(secondMod .. " + " .. right, hl.dsp.window.swap({ direction = "right" }))
 hl.bind(secondMod .. " + " .. up, hl.dsp.window.swap({ direction = "up" }))
 hl.bind(secondMod .. " + " .. down, hl.dsp.window.swap({ direction = "down" }))
+-- Move window
+hl.bind(secondMod .. " + " .. left, hl.dsp.window.move({ x = -20, y = 0, relative = true }), { repeating = true })
+hl.bind(secondMod .. " + " .. right, hl.dsp.window.move({ x = 20, y = 0, relative = true }), { repeating = true })
+hl.bind(secondMod .. " + " .. up, hl.dsp.window.move({ x = 0, y = -20, relative = true }), { repeating = true })
+hl.bind(secondMod .. " + " .. down, hl.dsp.window.move({ x = 0, y = 20, relative = true }), { repeating = true })
+
+
+-- Resize submap
+hl.bind(mainMod .. " + R", hl.dsp.submap("resize"))
+hl.define_submap("resize", function()
+  hl.bind(right, hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
+  hl.bind(left, hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
+  hl.bind(up, hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
+  hl.bind(down, hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
+
+  hl.bind("SHIFT + " .. right, hl.dsp.window.resize({ x = 50, y = 0, relative = true }), { repeating = true })
+  hl.bind("SHIFT + " .. left, hl.dsp.window.resize({ x = -50, y = 0, relative = true }), { repeating = true })
+  hl.bind("SHIFT + " .. up, hl.dsp.window.resize({ x = 0, y = -50, relative = true }), { repeating = true })
+  hl.bind("SHIFT + " .. down, hl.dsp.window.resize({ x = 0, y = 50, relative = true }), { repeating = true })
+
+  hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"))
+  hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
+
+  hl.bind(mainMod .. " + R", hl.dsp.submap("reset"))
+  hl.bind("Return", hl.dsp.submap("reset"))
+  hl.bind("Escape", hl.dsp.submap("reset"))
+end)
 
 hl.bind(mainMod .. " + backslash", hl.dsp.window.float())
 hl.bind(mainMod .. " + A", hl.dsp.window.fullscreen({ mode = "maximized" }))
@@ -40,6 +67,32 @@ for i = 1, 10 do
   hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
   hl.bind(secondMod .. " + " .. key, hl.dsp.window.move({ workspace = i }))
 end
+
+local layouts = {
+  "dwindle",
+  "scrolling",
+  "master",
+}
+
+local function indexOf(tbl, target)
+  for i, v in ipairs(tbl) do
+    if v == target then
+      return i
+    end
+  end
+  return nil
+end
+
+
+hl.bind(mainMod .. "+ N", function()
+  local currentLayout = hl.get_active_workspace().tiled_layout
+  local index = indexOf(layouts, currentLayout)
+  if (index == #layouts) then
+    index = 0
+  end
+  local next = index + 1
+  hl.dsp.workspace.rename({ workspace = hl.get_active_workspace().name, name = layouts[next] })
+end)
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
