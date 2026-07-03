@@ -62,14 +62,15 @@ tooltip label {
 
 #workspaces button {
   border-radius: 999px;
-  padding: 0 5px;
+  padding: 0px 3px;
   margin-right: 3px;
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(120deg, #1e1d1f, #070608);
   color: @foreground;
 }
 
+
 #workspaces button.empty {
-  background: rgba(0, 0, 0, 0.3);
+  background: linear-gradient(120deg, #5a3f6f, #252228);
 }
 
 #workspaces button:hover {
@@ -77,7 +78,7 @@ tooltip label {
 }
 
 #workspaces button.active {
-  background: linear-gradient(120deg, #614975, #392e43);
+  background: linear-gradient(120deg, #c394e9, #664f7a);
 }
 
 #workspaces button.urgent {
