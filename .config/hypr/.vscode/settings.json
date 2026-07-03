@@ -4,5 +4,6 @@
   ],
   "Lua.diagnostics.globals": [
     "hl"
-  ]
+  ],
+  "cSpell.enabled": false
 }
