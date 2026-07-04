@@ -64,13 +64,13 @@ tooltip label {
   border-radius: 999px;
   padding: 0px 3px;
   margin-right: 3px;
-  background: linear-gradient(120deg, #1e1d1f, #070608);
+  background: linear-gradient(120deg, #5a3f6f, #252228);
   color: @foreground;
 }
 
 
 #workspaces button.empty {
-  background: linear-gradient(120deg, #5a3f6f, #252228);
+  background: linear-gradient(120deg, #1e1d1f, #070608);
 }
 
 #workspaces button:hover {
