@@ -186,7 +186,7 @@ bindsym $mod+m exec ~/.scripts/play-next.sh
 bindsym $mod+Shift+m exec ~/.scripts/select-play-next.sh
 
 bar {
-	swaybar_command waybar
+	swaybar_command "waybar -c .config/waybar/config.sway.jsonc -s .config/waybar/style.sway.css"
 }
 
 for_window [shell="xwayland"] title_format "[XWayland] %title"
