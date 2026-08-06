@@ -10,6 +10,10 @@ hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 
+-- Mui
+hl.curve("mui_emphasized_decelerate", { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1 } } })
+hl.curve("mui_emphasized_accelerate", { type = "bezier", points = { { 0.3, 0 }, { 0.8, 0.15 } } })
+
 -- Default springs
 
 hl.curve("easy", { type = "spring", mass = 1, stiffness = 878.5, dampening = 59.29 })
@@ -31,6 +35,20 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almo
 hl.animation({ leaf = "workspacesIn", enabled = true, speed = 2, bezier = "easeOutQuint", style = "slide" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 2, bezier = "easeOutQuint", style = "slide" })
 hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "specialWorkspaceIn", enabled = true, speed = 3, bezier = "easeOutQuint", style = "slide bottom" })
-hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 2, bezier = "easeOutQuint", style = "slide top" })
+hl.animation({
+  leaf = "specialWorkspaceIn",
+  enabled = true,
+  speed = 2,
+  bezier = "mui_emphasized_decelerate",
+  style =
+  "slide bottom"
+})
+hl.animation({
+  leaf = "specialWorkspaceOut",
+  enabled = true,
+  speed = 2,
+  bezier = "mui_emphasized_accelerate",
+  style =
+  "slide top"
+})
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
