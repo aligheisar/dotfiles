@@ -18,3 +18,4 @@ next_wall="${wallpapers[$next_index]}"
 
 # Set the wall
 awww img "$next_wall" -t fade --transition-duration=0.4
+matugen image "$next_wall" --prefer saturation

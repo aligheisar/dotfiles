@@ -1,2 +1,11 @@
 .zsh_plugins.zsh
 .qmlls.ini
+
+# matugen generated files
+.config/rmpc/themes/matugen.ron
+.config/gtk-*/colors.css
+.config/qt*ct/colors/matugen.conf
+.config/hypr/colors.lua
+.config/mako/colors
+.config/btop/themes/matugen.theme
+.config/rofi/colors.rasi
