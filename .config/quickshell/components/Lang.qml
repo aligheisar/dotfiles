@@ -1,10 +1,11 @@
 import Quickshell.Hyprland
 import QtQuick
-import qs.configs
+import qs.config
+import qs.colors
 
 Text {
     id: root
-    color: Config.colors.foreground
+    color: Colors.foreground
     property string layout: "EN"
 
     Connections {
@@ -44,5 +45,5 @@ Text {
     text: layout
     font.family: Config.font.family
     font.pixelSize: Config.font.base
-    font.weight: Font.Medium
+    font.weight: Font.ExtraLight
 }

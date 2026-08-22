@@ -1,12 +1,14 @@
 import QtQuick
 import QtQuick.Shapes
-import qs.configs
+import qs.config
+import qs.colors
 
 Shape {
     id: root
 
     property int radius: Config.sizes.windowRounding
-    property color color: Config.colors.background
+    property color color: Qt.alpha(Colors.background, Config.appearance.barOpacity)
+
     property bool isTop: true
     property bool mirrored: false
 

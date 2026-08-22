@@ -1,0 +1,78 @@
+/* MACOS SPOTLIGHT LIKE DARK THEME FOR ROFI  */
+/* Author: Newman Sanchez (https://github.com/newmanls) */
+@import "../colors.rasi"
+
+* {
+    font:   "Roboto 11";
+
+    background-color:   transparent;
+    text-color:         @on-surface;
+    margin:     0;
+    padding:    0;
+    spacing:    0;
+}
+window {
+    background-color:   @surface-container-transparent;
+    location:       center;
+    width:          640;
+    border-radius:  8;
+}
+inputbar {
+    font:       "Inter 14";
+    padding:    8px;
+    spacing:    6px;
+    children:   [ prompt, "textbox-prompt-colon", entry ];
+}
+textbox-prompt-colon {
+    margin:     0 -5px;
+    expand:     false;
+		font: inherit;
+    str:        ":";
+    text-color: @on-surface-variant;
+}
+prompt {
+	text-color: @on-surface-variant;
+	font: inherit;
+}
+entry, element-icon, element-text {
+    vertical-align: 0.5;
+}
+entry {
+    font:   inherit;
+}
+message {
+    border:             2px 0 0;
+    border-color:       @surface-container-high;
+    background-color:   @surface-container-high;
+}
+textbox {
+    padding:    8px 24px;
+}
+listview {
+    lines:      10;
+    columns:    1;
+    fixed-height:   false;
+    border:         0 0 0;
+    border-color:   @surface-container-high;
+}
+element {
+    padding:            8px 12px;
+    spacing:            8px;
+    background-color:   transparent;
+}
+element normal active {
+    text-color: @outline-variant;
+}
+element alternate active {
+    text-color: @outline-variant;
+}
+element selected normal, element selected active {
+    background-color:   @secondary-container;
+    text-color:         @on-secondary-container;
+}
+element-icon {
+    size:   1.25em;
+}
+element-text {
+    text-color: inherit;
+}

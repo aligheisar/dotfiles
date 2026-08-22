@@ -2,7 +2,8 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import Quickshell.Hyprland
-import qs.configs
+import qs.config
+import qs.colors
 
 Column {
     spacing: Config.spacing.xs
@@ -61,15 +62,15 @@ Column {
 
             color: {
                 if (urgent)
-                    return Config.colors.wsUrgent;
+                    return Colors.error;
 
                 if (focused)
-                    return Config.colors.wsFocused;
+                    return Colors.tertiary;
 
                 if (hasWindows)
-                    return Config.colors.wsActive;
+                    return Colors.secondaryContainer;
 
-                return Config.colors.ws;
+                return Colors.surfaceVariant;
             }
 
             Behavior on color {
@@ -131,10 +132,10 @@ Column {
 
                 color: {
                     if (!wsPill.focused && wsPill.hasWindows)
-                        return Config.colors.wsActiveForeground;
+                        return Colors.secondaryContainerText;
                     if (wsPill.focused)
-                        return Config.colors.wsFocusedForeground;
-                    return Config.colors.wsForeground;
+                        return Colors.tertiaryText;
+                    return Colors.mutedForeground;
                 }
 
                 font.pixelSize: Config.sizes.wsIcon

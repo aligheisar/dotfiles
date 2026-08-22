@@ -2,7 +2,8 @@ import Quickshell.Hyprland
 import Quickshell.Widgets
 import Quickshell
 import QtQuick
-import qs.configs
+import qs.config
+import qs.colors
 
 Column {
     id: root
@@ -71,7 +72,7 @@ Column {
 
             anchors.centerIn: parent
 
-            color: Config.colors.foreground
+            color: Colors.foreground
             text: root.activeWindow?.title || "Desktop"
             font.pixelSize: Config.font.base
 

@@ -1,4 +1,5 @@
 pragma Singleton
+
 import QtQuick
 
 QtObject {
@@ -27,23 +28,7 @@ QtObject {
         readonly property int button: 32
         readonly property int wsButton: 28
         readonly property int wsIcon: 14
-        readonly property int windowRounding: 10
-    }
-
-    component Colors: QtObject {
-        readonly property color background: '#DE090909'
-        readonly property color trayBackground: '#181818'
-        readonly property color osdBackground: '#90020202'
-        readonly property color osdProgressBackground: '#606060'
-        readonly property color foreground: "#EAEAEA"
-        readonly property color mutedForeground: '#c7c7c7'
-        readonly property color ws: '#222222'
-        readonly property color wsFocused: '#EAEAEA'
-        readonly property color wsActive: '#393939'
-        readonly property color wsUrgent: '#702f2f'
-        readonly property color wsForeground: '#7a7a7a'
-        readonly property color wsActiveForeground: '#EAEAEA'
-        readonly property color wsFocusedForeground: '#121212'
+        readonly property int windowRounding: 9
     }
 
     component Font: QtObject {
@@ -58,9 +43,14 @@ QtObject {
         readonly property int doubleXl: 32
     }
 
+    component Appearance: QtObject {
+        readonly property double barOpacity: 0.9
+        readonly property double osdOpacity: 0.9
+    }
+
     readonly property Spacing spacing: Spacing {}
     readonly property Rounding rounding: Rounding {}
     readonly property Sizes sizes: Sizes {}
-    readonly property Colors colors: Colors {}
     readonly property Font font: Font {}
+    readonly property Appearance appearance: Appearance {}
 }

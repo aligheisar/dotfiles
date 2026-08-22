@@ -1,17 +1,15 @@
-font=Roboto Mono 10
-
-# color
-background-color=#332235
-text-color=#efefef
-border-color=#534255
+font=Roboto 10
 
 # layout
 width=370
-margin=8
+margin=5
 padding=8
 border-size=1
 max-icon-size=32
-border-radius=8
+border-radius=6
 
 # logic
 default-timeout=3000
+
+# theme
+include=~/.config/mako/colors

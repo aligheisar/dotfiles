@@ -1,7 +1,7 @@
 import Quickshell
 import QtQuick
-import qs.configs
-import "../components"
+import qs.config
+import qs.components
 
 Scope {
     PanelWindow { // qmllint disable uncreatable-type

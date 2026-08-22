@@ -1,11 +1,14 @@
+local colors = require("colors")
+
 hl.config({
+
     general = {
         gaps_in          = 2,
         gaps_out         = 4,
         border_size      = 1,
         col              = {
-            active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = { colors = { colors.primary, colors.secondary }, angle = 45 },
+            inactive_border = colors.inverse_primary,
         },
         resize_on_border = false,
         allow_tearing    = false,
@@ -22,7 +25,7 @@ hl.config({
             enabled      = false,
             range        = 3,
             render_power = 4,
-            color        = 0xee1a1a1a,
+            color        = colors.shadow,
         },
 
         blur             = {

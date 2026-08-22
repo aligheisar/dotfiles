@@ -1,9 +1,10 @@
 //@ pragma UseQApplication
 import Quickshell
 import QtQuick
-import qs.configs
-import "components/"
-import "overlays/"
+import qs.components
+import qs.overlays
+import qs.config
+import qs.colors
 
 Scope {
     PanelWindow { // qmllint disable uncreatable-type
@@ -15,7 +16,7 @@ Scope {
             bottom: true
         }
         implicitWidth: Config.sizes.barWidth
-        color: Config.colors.background
+        color: Qt.alpha(Colors.background, Config.appearance.barOpacity)
 
         Column {
             anchors.horizontalCenter: parent.horizontalCenter
@@ -23,6 +24,7 @@ Scope {
             topPadding: Config.spacing.md
 
             Workspaces {}
+            Player {}
         }
 
         Title {}

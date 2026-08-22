@@ -1,6 +1,7 @@
 import Quickshell
 import QtQuick
-import qs.configs
+import qs.config
+import qs.colors
 
 Column {
     SystemClock {
@@ -11,20 +12,20 @@ Column {
     anchors.horizontalCenter: parent.horizontalCenter
 
     Text {
-        color: Config.colors.foreground
+        color: Colors.tertiary
         text: Qt.formatDateTime(sysClock.date, "hh")
         font {
             family: Config.font.familyMono
-            pixelSize: Config.font.base
+            pixelSize: Config.font.md
             weight: Font.Bold
         }
     }
     Text {
-        color: Config.colors.mutedForeground
+        color: Colors.mutedForeground
         text: Qt.formatDateTime(sysClock.date, "mm")
         font {
             family: Config.font.familyMono
-            pixelSize: Config.font.base
+            pixelSize: Config.font.md
             weight: Font.Light
         }
     }

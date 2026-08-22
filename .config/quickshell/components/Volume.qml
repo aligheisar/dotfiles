@@ -1,6 +1,7 @@
 import Quickshell.Services.Pipewire
 import QtQuick
-import qs.configs
+import qs.config
+import qs.colors
 
 Item {
     id: root
@@ -33,7 +34,7 @@ Item {
         text: root.icon
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: Config.sizes.barIcon
-        color: Config.colors.foreground
+        color: Colors.foreground
     }
 
     MouseArea {

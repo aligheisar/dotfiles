@@ -1,11 +1,12 @@
 import Quickshell.Services.SystemTray
 import QtQuick
 import QtQuick.Layouts
-import qs.configs
+import qs.config
+import qs.colors
 
 Rectangle {
     id: root
-    color: Config.colors.trayBackground
+    color: Colors.surfaceHighest
     implicitWidth: col.implicitWidth + Config.spacing.md * 2
     implicitHeight: col.implicitHeight + Config.spacing.md * 2
 

@@ -2,7 +2,7 @@ pragma ComponentBehavior: Bound
 
 import Quickshell
 import QtQuick
-import qs.configs
+import qs.config
 
 MouseArea {
     id: trayDelegate

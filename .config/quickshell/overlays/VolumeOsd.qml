@@ -2,7 +2,8 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.Pipewire
-import qs.configs
+import qs.config
+import qs.colors
 
 Scope {
     id: root
@@ -87,7 +88,7 @@ Scope {
             Rectangle {
                 anchors.fill: parent
                 radius: Config.rounding.full
-                color: Config.colors.osdBackground
+                color: Qt.alpha(Colors.scrim, Config.appearance.osdOpacity)
 
                 RowLayout {
                     anchors {
@@ -106,7 +107,7 @@ Scope {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: root.icon
-                            color: Config.colors.foreground
+                            color: Colors.secondary
                             font {
                                 pixelSize: 20
                             }
@@ -120,7 +121,7 @@ Scope {
 
                         implicitHeight: 8
                         radius: Config.rounding.full
-                        color: Config.colors.osdProgressBackground
+                        color: Colors.surface
 
                         Rectangle {
                             anchors {
@@ -128,6 +129,7 @@ Scope {
                                 top: parent.top
                                 bottom: parent.bottom
                             }
+                            color: Colors.secondary
 
                             implicitWidth: parent.width * root.volume
                             radius: Config.rounding.full
@@ -142,7 +144,7 @@ Scope {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: root.volumePercent + "%"
-                            color: Config.colors.foreground
+                            color: Colors.secondary
                             font.pixelSize: Config.font.sm
                         }
                     }
