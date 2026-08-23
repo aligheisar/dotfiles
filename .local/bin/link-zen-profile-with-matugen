@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ZEN_ROOT="$HOME/.zen"
+LINK="$XDG_CACHE_HOME/matugen/zen"
+
+profile=$(
+    awk '
+        /^\[Install/ {
+            in_install = 1
+            next
+        }
+
+        /^\[/ {
+            in_install = 0
+        }
+
+        in_install && /^Default=/ {
+            print substr($0, 9)
+            exit
+        }
+    ' "$ZEN_ROOT/profiles.ini"
+)
+
+if [[ -z "$profile" ]]; then
+    echo "Could not find Zen default profile" >&2
+    exit 1
+fi
+
+if [[ "$profile" = /* ]]; then
+    profile_dir="$profile"
+else
+    profile_dir="$ZEN_ROOT/$profile"
+fi
+
+chrome_dir="$profile_dir/chrome"
+
+mkdir -p "$chrome_dir"
+mkdir -p "$(dirname "$LINK")"
+
+ln -sfn "$chrome_dir" "$LINK"

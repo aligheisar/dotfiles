@@ -27,11 +27,11 @@ output_path = '~/.config/rofi/colors.rasi'
 
 [templates.zen-userchrome]
 input_path = './templates/zen-userchrome.css'
-output_path = '/home/ali/.zen/0nwjxuan.Default (release)/chrome/zen-userChrome.css'
+output_path = '~/.cache/matugen/zen/zen-userChrome.css'
 
 [templates.zen-usercontent]
 input_path = './templates/zen-usercontent.css'
-output_path = '/home/ali/.zen/0nwjxuan.Default (release)/chrome/zen-userContent.css'
+output_path = '~/.cache/matugen/zen/zen-userContent.css'
 
 [templates.gtk3]
 input_path = './templates/gtk.css'
