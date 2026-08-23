@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import Quickshell.Services.Mpris
 import Quickshell.Widgets
+// import qs.services
 import qs.config
 import qs.colors
 
@@ -24,6 +25,14 @@ Item {
 
         return players.length > 0 ? players[0] : null;
     }
+
+    // Connections {
+    //     target: player
+
+    //     function onPostTrackChanged() {
+    //         Matugen.generateFromArtwork(player.trackArtUrl);
+    //     }
+    // }
 
     visible: player !== null && player.playbackState !== MprisPlaybackState.Stopped
 
