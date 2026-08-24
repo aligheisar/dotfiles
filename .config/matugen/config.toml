@@ -55,3 +55,7 @@ post_hook = 'pkill -USR2 btop || true'
  [templates.firefox-website-colors]
  input_path = "./templates/websites.css"
  output_path = "~/.cache/matugen/zen/colors.css"
+
+ [templates.foot]
+ input_path = "./templates/foot.ini"
+ output_path = "~/.config/foot/matugen.ini"
