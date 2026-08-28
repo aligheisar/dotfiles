@@ -131,3 +131,6 @@ hl.bind(secondMod .. " + M", hl.dsp.exec_cmd("select-play-next"), { locked = tru
 hl.bind(secondMod .. " + N", hl.dsp.exec_cmd("networkmanager_dmenu"), { locked = true })
 hl.bind("Print", hl.dsp.exec_cmd("grim"), { locked = true })
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd('grim -g "$(slurp)"'), { locked = true })
+
+-- Quickshell
+hl.bind(thirdMod .. " + L", hl.dsp.global("quickshell:toggle-lyrics"), { repeating = false })

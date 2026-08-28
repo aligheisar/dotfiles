@@ -82,6 +82,11 @@ hl.layer_rule({
   ignore_alpha = 0,
 })
 
+hl.layer_rule({
+  match = { namespace = "lyrics-panel" },
+	animation = "fade"
+})
+
 hl.workspace_rule({ workspace = "name:dwindle", layout = "dwindle" })
 hl.workspace_rule({ workspace = "name:scrolling", layout = "scrolling" })
 hl.workspace_rule({ workspace = "name:master", layout = "master" })
