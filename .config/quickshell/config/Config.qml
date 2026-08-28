@@ -3,6 +3,11 @@ pragma Singleton
 import QtQuick
 
 QtObject {
+    component General: QtObject {
+        readonly property string musicDir: "/home/ali/Music"
+        readonly property string lyricsDir: "/home/ali/Music/lrc"
+        property bool showLyrics: true
+    }
     component Spacing: QtObject {
         readonly property int xs: 2
         readonly property int sm: 4
@@ -22,6 +27,7 @@ QtObject {
 
     component Sizes: QtObject {
         readonly property int barWidth: 44
+        readonly property int maxLyricsOverlayWidth: 500
         readonly property int trayIcon: 14
         readonly property int titleIcon: 22
         readonly property int barIcon: 20
@@ -48,6 +54,7 @@ QtObject {
         readonly property double osdOpacity: 0.9
     }
 
+    readonly property General general: General {}
     readonly property Spacing spacing: Spacing {}
     readonly property Rounding rounding: Rounding {}
     readonly property Sizes sizes: Sizes {}

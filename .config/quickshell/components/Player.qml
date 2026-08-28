@@ -3,7 +3,6 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import Quickshell.Services.Mpris
 import Quickshell.Widgets
-// import qs.services
 import qs.config
 import qs.colors
 

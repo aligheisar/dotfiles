@@ -45,4 +45,6 @@ Scope {
     }
 
     CornerCurves {}
+
+    LyricsOverlay {}
 }
