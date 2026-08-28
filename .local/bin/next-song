@@ -1,7 +1,7 @@
-is_mpd=$(pgrep mpd)
+#!/bin/bash
 
-if [ $is_mpd ]; then
-	mpc next
+if pgrep -x mpd > /dev/null; then
+    mpc next
 else
-	playerctl next
+    playerctl next
 fi

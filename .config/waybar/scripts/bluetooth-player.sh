@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Choose preferred player
 PLAYER=$(playerctl -l 2>/dev/null | grep -m 1 "bluez" || playerctl -l 2>/dev/null | head -n 1)

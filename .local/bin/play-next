@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 files="$(mpc listall)"
 selected_index="$(mpc listall -f '%artist% - %title% - %album%' | rofi -format i  -dmenu -p 'Choose to Add')" || exit 0

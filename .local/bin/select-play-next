@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 artist="$(mpc list artist | sed '1{/^$/d;}' | rofi -dmenu -p 'Choose artist')" || exit 0
 artist_files="$(mpc search artist "$artist")"

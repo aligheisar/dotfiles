@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 print_keymode() {
 	keymode=$(mmsg get keymode | jq -r .keymode)

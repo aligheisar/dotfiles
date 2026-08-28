@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 swayidle \
 	timeout 600 'wlr-dpms off && hyprlock' \

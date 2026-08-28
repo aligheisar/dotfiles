@@ -1,6 +1,6 @@
-is_mpd=$(pgrep mpd)
+#!/bin/bash
 
-if [ $is_mpd ]; then
+if pgrep -x mpd > /dev/null; then
 	mpc toggle
 else
 	playerctl play-pause

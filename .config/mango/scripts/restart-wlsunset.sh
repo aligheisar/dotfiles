@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 ps aux | grep wlsunset | grep -v swayidle | grep -v restart | grep -v grep | awk '{print $2}' | xargs sudo kill 
 
