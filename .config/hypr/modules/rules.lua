@@ -70,6 +70,12 @@ hl.window_rule({
   pin          = true
 })
 
+hl.window_rule({
+  match        = { class = "blender", title = "File Browser" },
+  size         = { 1100, 800 },
+	center       = true
+})
+
 hl.layer_rule({
   match = { namespace = "rofi" },
   blur = true,
