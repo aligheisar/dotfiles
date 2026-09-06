@@ -40,7 +40,15 @@ elif [ "$exit_code" -eq 10 ]; then
     find "$thumbnail_dir" -name "${item_id}.*" -delete
   fi
 else
-  [ -z "$item" ] || echo "$item" | cliphist decode | wl-copy
+  if [ -n "$item" ]; then
+    content=$(echo "$item" | cliphist decode)
+
+    # Copy to clipboard
+    printf '%s' "$content" | wl-copy
+
+    # Type into the focused application
+    wtype "$content"
+  fi
 fi
 
 # Delete cached thumbnails that are no longer in cliphist db
