@@ -35,6 +35,7 @@ PanelWindow {// qmllint disable uncreatable-type
     anchors {
         bottom: true
         left: true
+        right: true
     }
 
     WlrLayershell.layer: WlrLayer.Overlay
@@ -100,14 +101,14 @@ PanelWindow {// qmllint disable uncreatable-type
                     id: currentLyric
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    horizontalAlignment: Text.AlignLeft
-                    width: parent.width
+                    //horizontalAlignment: Text.AlignLeft
+                    //width: parent.width
                     font.family: Config.font.family
                     font.pixelSize: root.lyricsPixelSize
                     color: Colors.foreground
                     wrapMode: Text.WordWrap
                     text: lineBox.displayed
-                    transformOrigin: Item.Left
+                    //transformOrigin: Item.Left
                     opacity: 1
                     scale: 1
                     transform: Translate {
