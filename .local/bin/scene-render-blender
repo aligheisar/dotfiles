@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import bpy
+import sys
+
+# Get arguments after --
+args = sys.argv
+version = "v1"  # Default version
+
+if "--" in args:
+    custom_args = args[args.index("--") + 1:]
+
+    if custom_args:
+        version = custom_args[0]
+
+for scene in bpy.data.scenes:
+    scene.render.filepath = f"//renders/{version}/{scene.name}/"
+
+    print(f"Rendering scene: {scene.name}")
+    print(f"Output: {scene.render.filepath}")
+
+    bpy.ops.render.render(
+        animation=True,
+        scene=scene.name
+    )
+
+print("All scenes finished!")
