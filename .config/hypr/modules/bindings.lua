@@ -1,4 +1,5 @@
 local terminal  = "foot"
+local filemanager  = "nemo"
 local menu      = "rofi -show drun"
 
 local mainMod   = "SUPER"
@@ -15,6 +16,7 @@ hl.bind(thirdMod .. " + E",
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist-rofi-img"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(filemanager))
 hl.bind(secondMod .. " + W", hl.dsp.exec_cmd("cycle-wallpaper"))
 -- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
