@@ -50,8 +50,8 @@ QtObject {
     }
 
     component Appearance: QtObject {
-        readonly property double barOpacity: 0.9
-        readonly property double osdOpacity: 0.9
+        readonly property double barOpacity: 0.85
+        readonly property double osdOpacity: 0.85
     }
 
     readonly property General general: General {}
