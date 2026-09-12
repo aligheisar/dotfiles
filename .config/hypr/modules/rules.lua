@@ -65,7 +65,7 @@ hl.window_rule({
   match        = { class = "nz.co.mega.megasync" },
   stay_focused = true,
   float        = true,
-  move         = { "monitor_w - 358", 119 },
+  move         = { 100, "monitor_h - 486" },
   size         = { 300, 400 },
   pin          = true
 })
