@@ -38,8 +38,27 @@ Scope {
             spacing: Config.spacing.lg
 
             Tray {}
-            Volume {}
-            Lang {}
+
+            Rectangle {
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: controls_col.implicitWidth
+                height: controls_col.implicitHeight
+                color: Colors.secondaryContainer
+                radius: Config.rounding.full
+
+                Column {
+                    id: controls_col
+                    spacing: Config.spacing.md
+                    width: 30
+                    topPadding: Config.spacing.sm
+                    bottomPadding: Config.spacing.md
+
+                    Volume {}
+                    Lang {}
+                    Date {}
+                }
+            }
+
             Clock {}
         }
     }
