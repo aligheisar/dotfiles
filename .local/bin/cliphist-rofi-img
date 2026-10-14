@@ -47,7 +47,7 @@ else
     printf '%s' "$content" | wl-copy
 
     # Type into the focused application
-    wtype "$content"
+    # wtype "$content"
   fi
 fi
 
