@@ -131,8 +131,14 @@ Scope {
                             }
                             color: Colors.secondary
 
-                            implicitWidth: parent.width * root.volume
+                            width: parent.width * root.volume
                             radius: Config.rounding.full
+
+                            Behavior on width {
+                                NumberAnimation {
+                                    duration: 80
+                                }
+                            }
                         }
                     }
 
