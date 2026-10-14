@@ -1,5 +1,5 @@
 hl.on("hyprland.start", function()
-  hl.exec_cmd("nm-applet & blueman-applet & awww-daemon & mpd & mpdris2-rs --no-notification")
+  hl.exec_cmd("blueman-applet & awww-daemon & mpd & mpdris2-rs --no-notification")
   hl.exec_cmd("qs")
   hl.exec_cmd("wl-clip-persist --clipboard regular --reconnect-tries 0")
   hl.exec_cmd("wl-paste --type text --watch cliphist store")
