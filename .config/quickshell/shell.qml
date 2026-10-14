@@ -1,6 +1,7 @@
 import Quickshell
 import QtQuick
 import qs.components
+import qs.components.network
 import qs.overlays
 import qs.config
 import qs.colors
@@ -50,9 +51,9 @@ Scope {
                     id: controls_col
                     spacing: Config.spacing.md
                     width: 30
-                    topPadding: Config.spacing.sm
                     bottomPadding: Config.spacing.md
 
+                    NetworkWidget {}
                     Volume {}
                     Lang {}
                     Date {}
