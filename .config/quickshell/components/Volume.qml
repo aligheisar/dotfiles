@@ -6,8 +6,9 @@ import qs.colors
 Item {
     id: root
 
-    width: parent.width
-    height: iconText.implicitHeight
+    width: Config.sizes.barIcon
+    height: Config.sizes.barIcon
+    anchors.horizontalCenter: parent.horizontalCenter
 
     PwObjectTracker {
         objects: [Pipewire.defaultAudioSink]
@@ -32,7 +33,7 @@ Item {
     Text {
         id: iconText
         text: root.icon
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
         font.pixelSize: Config.sizes.barIcon
         color: Colors.foreground
     }
