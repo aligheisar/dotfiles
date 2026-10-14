@@ -10,3 +10,4 @@
 .config/btop/themes/matugen.theme
 .config/rofi/colors.rasi
 .config/foot/matugen.ini
+.local/bin/neutron
