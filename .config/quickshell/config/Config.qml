@@ -31,7 +31,7 @@ QtObject {
         readonly property int trayIcon: 14
         readonly property int titleIcon: 22
         readonly property int barIcon: 20
-        readonly property int button: 32
+        readonly property int button: 28
         readonly property int wsButton: 28
         readonly property int wsIcon: 14
         readonly property int windowRounding: 9
@@ -50,8 +50,9 @@ QtObject {
     }
 
     component Appearance: QtObject {
-        readonly property double barOpacity: 0.85
-        readonly property double osdOpacity: 0.85
+        readonly property double barOpacity: 0.9
+        readonly property double osdOpacity: 0.9
+        readonly property double popupOpacity: 1
     }
 
     readonly property General general: General {}
