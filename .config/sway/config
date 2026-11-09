@@ -9,17 +9,15 @@ set $up k
 set $right l
 
 # terminal emulator
-set $term foot
+set $term foot --config ~/.config/foot/sway-foot.ini
 
 # application launcher
-set $menu fuzzel
+set $menu fuzzel --config ~/.config/fuzzel/sway-fuzzel.ini
 
-# wallpaper
-exec sh ~/.scripts/random-wallpaper.sh
 # update wallpaper
-bindsym $mod+Shift+w exec sh ~/.scripts/cycle-wallpaper.sh
+bindsym $mod+Shift+w exec cycle-wallpaper
 # opening network manager in fuzzel
-bindsym $mod+Shift+n exec networkmanager_dmenu
+bindsym $mod+Shift+n exec networkmanager_dmenu --config ~/.config/networkmanager-dmenu/sway-config.ini
 
 # Idle configuration
 exec swayidle -w \
@@ -60,7 +58,9 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec sh -c 'choice=$(echo -e "No\nYes" | $menu -p "Exit Sway? " -d -l 2); [ "$choice" = "Yes" ] && swaymsg exit'
+bindsym $mod+Ctrl+Shift+e exec sh -c 'choice=$(echo -e "No\nYes" | $menu -p "Exit Sway? " -d -l 2); [ "$choice" = "Yes" ] && swaymsg exit'
+
+bindsym $mod+Shift+v exec sh cliphist-rofi-img
 
 # Move your focus around
 bindsym $mod+$left focus left
@@ -164,14 +164,14 @@ bindsym $mod+r mode "resize"
 
 # Special keys to adjust volume via PulseAudio
 bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec ~/.scripts/volume_down.sh
-bindsym --locked Shift+XF86AudioLowerVolume exec ~/.scripts/volume_down.sh extreme
-bindsym --locked Alt+XF86AudioLowerVolume exec ~/.scripts/volume_down.sh precise
-bindsym --locked XF86AudioRaiseVolume exec ~/.scripts/volume_up.sh
-bindsym --locked Shift+XF86AudioRaiseVolume exec ~/.scripts/volume_up.sh extreme
-bindsym --locked Alt+XF86AudioRaiseVolume exec ~/.scripts/volume_up.sh precise
+bindsym --locked XF86AudioLowerVolume exec volume-down
+bindsym --locked Shift+XF86AudioLowerVolume exec volume-down extreme
+bindsym --locked Alt+XF86AudioLowerVolume exec volume-down precise
+bindsym --locked XF86AudioRaiseVolume exec volume-up
+bindsym --locked Shift+XF86AudioRaiseVolume exec volume-up extreme
+bindsym --locked Alt+XF86AudioRaiseVolume exec volume-up precise
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
-bindsym --locked XF86AudioPlay exec ~/.scripts/toggle-play.sh
+bindsym --locked XF86AudioPlay exec toggle-play
 # Special keys to adjust brightness via brightnessctl
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
@@ -179,11 +179,11 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym Print exec grim
 bindsym $mod+Print exec grim -g "$(slurp)"
 # Music keys
-bindsym $mod+p exec ~/.scripts/toggle-play.sh 
-bindsym $mod+comma exec ~/.scripts/prev.sh
-bindsym $mod+period exec ~/.scripts/next.sh
-bindsym $mod+m exec ~/.scripts/play-next.sh
-bindsym $mod+Shift+m exec ~/.scripts/select-play-next.sh
+bindsym $mod+p exec toggle-play
+bindsym $mod+comma exec prev-song
+bindsym $mod+period exec next-song
+bindsym $mod+m exec play-next
+bindsym $mod+Shift+m exec select-play-next
 
 bar {
 	swaybar_command "waybar -c .config/waybar/config.sway.jsonc -s .config/waybar/style.sway.css"
@@ -218,6 +218,9 @@ exec nm-applet &
 exec lxqt-policykit-agent &
 exec blueman-applet &
 exec mpd &
+exec awww-daemon &
+exec wl-clip-persist --clipboard regular --reconnect-tries 0 &
+exec wl-paste --type text --watch cliphist store &
 
 assign [app_id="zen"] $ws1
 assign [app_id="code"] $ws2
