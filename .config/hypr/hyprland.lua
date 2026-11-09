@@ -57,3 +57,5 @@ require("modules.layout")
 require("modules.misc")
 require("modules.monitor")
 require("modules.rules")
+
+hl.bind("CTRL + SHIFT + 2", hl.dsp.global("com.t3tools.T3Code:capture-window"))
