@@ -36,6 +36,8 @@ video/x-msvideo=mpv.desktop
 video/mpeg=mpv.desktop
 video/quicktime=mpv.desktop
 x-scheme-handler/zcode=zcode.desktop
+x-scheme-handler/t3code=com.t3tools.T3Code.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen.desktop;
