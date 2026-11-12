@@ -216,6 +216,7 @@ font pango:Sf Pro Text 10
 # startup apps
 exec nm-applet &
 exec lxqt-policykit-agent &
+exec yambar &
 exec blueman-applet &
 exec mpd &
 exec awww-daemon &
