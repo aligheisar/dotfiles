@@ -11,3 +11,6 @@
 .config/rofi/colors.rasi
 .config/foot/matugen.ini
 .local/bin/neutron
+.local/bin/coderabbit
+.local/bin/copilot
+.local/bin/cr
