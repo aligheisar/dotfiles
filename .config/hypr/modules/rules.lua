@@ -40,7 +40,7 @@ hl.window_rule({
 hl.window_rule({
   name = "code",
   match = {
-    class = "code"
+    class = "com.microsoft.VSCode"
   },
   workspace = 2
 })
@@ -71,9 +71,9 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  match        = { class = "blender", title = "File Browser" },
-  size         = { 1100, 800 },
-	center       = true
+  match  = { class = "blender", title = "File Browser" },
+  size   = { 1100, 800 },
+  center = true
 })
 
 hl.layer_rule({
@@ -90,7 +90,7 @@ hl.layer_rule({
 
 hl.layer_rule({
   match = { namespace = "lyrics-panel" },
-	animation = "fade"
+  animation = "fade"
 })
 
 hl.workspace_rule({ workspace = "name:dwindle", layout = "dwindle" })
