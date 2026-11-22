@@ -21,14 +21,22 @@ ShellRoot {
         visible: Config.general.showLyrics
 
         exclusiveZone: 0
-        mask: Region {}
+        mask: Region {
+            // Keeps the window click-through whenever there is nothing to show.
+            item: root.hasLyric ? hoverZone : null
+        }
         color: "transparent"
 
         readonly property int padV: 10
         readonly property int padH: 10
+        readonly property int liftPx: 48
+
+        readonly property bool hovered: hasLyric && hoverHandler.hovered
 
         implicitWidth: Config.sizes.maxLyricsOverlayWidth
-        implicitHeight: hasLyric ? (lyricCol.implicitHeight + padV * 2) : 0
+        // Hovering grows the window upwards (the bottom edge is pinned), lifting the
+        // lyric pill off the screen edge and revealing what is behind it.
+        implicitHeight: hasLyric ? (lyricCol.implicitHeight + padV * 2 + (hovered ? liftPx : 0)) : 0
 
         anchors {
             bottom: true
@@ -70,6 +78,20 @@ ShellRoot {
                 NumberAnimation {
                     duration: 220
                     easing.type: Easing.OutCubic
+                }
+            }
+
+            // Hover target: stays put while the window grows, so the pointer never
+            // leaves the region mid-animation (which would cause hover flicker).
+            Item {
+                id: hoverZone
+                anchors.left: parent.left
+                anchors.top: parent.top
+                height: parent.height
+                width: Math.max(textContainer.width, 1)
+
+                HoverHandler {
+                    id: hoverHandler
                 }
             }
 
