@@ -3,9 +3,9 @@
 import bpy
 import sys
 
-# Get arguments after --
 args = sys.argv
-version = "v1"  # Default version
+version = "v1"
+ignored_scenes = []
 
 if "--" in args:
     custom_args = args[args.index("--") + 1:]
@@ -13,7 +13,15 @@ if "--" in args:
     if custom_args:
         version = custom_args[0]
 
+    if "--ignore" in custom_args:
+        ignore_index = custom_args.index("--ignore") + 1
+        ignored_scenes = custom_args[ignore_index:]
+
 for scene in bpy.data.scenes:
+    if scene.name in ignored_scenes:
+        print(f"Skipping scene: {scene.name}")
+        continue
+
     scene.render.filepath = f"//renders/{version}/{scene.name}/"
 
     print(f"Rendering scene: {scene.name}")
@@ -25,3 +33,4 @@ for scene in bpy.data.scenes:
     )
 
 print("All scenes finished!")
+
